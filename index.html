@@ -56,6 +56,17 @@
         },
         {
           "data": {
+            "graticule": {"step": [5, 5]}
+          },
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#d0d0d0",
+            "strokeWidth": 0.5,
+            "filled": false
+          }
+        },
+        {
+          "data": {
             "url": "malaysia_state.topojson",
             "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
           },
@@ -68,7 +79,8 @@
                 },
                 "key": "state",
                 "fields": ["production", "planted_area"]
-              }
+              },
+              "default": {"production": 0, "planted_area": 1}
             },
             {
               "calculate": "datum.production / datum.planted_area",
@@ -88,6 +100,10 @@
               "scale": {
                 "scheme": "greens",
                 "domain": [0, 850000]
+              },
+              "legend": {
+                "orient": "right",
+                "format": ",.0f"
               }
             },
             "tooltip": [
@@ -96,17 +112,6 @@
               {"field": "planted_area", "type": "quantitative", "title": "Planted Area (hectares)", "format": ","},
               {"field": "yield_per_hectare", "type": "quantitative", "title": "Yield (tons/hectare)", "format": ".2f"}
             ]
-          }
-        },
-        {
-          "data": {
-            "graticule": {"step": [5, 5]}
-          },
-          "mark": {
-            "type": "geoshape",
-            "stroke": "#cccccc",
-            "strokeWidth": 0.5,
-            "filled": false
           }
         }
       ],
