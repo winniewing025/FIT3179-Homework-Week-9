@@ -28,7 +28,6 @@
 <body>
   <h1>Paddy Production in Malaysia by State (2022)</h1>
   <div id="vis"></div>
-
   <script>
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -46,7 +45,6 @@
       },
       
       "layer": [
-        // Ocean background
         {
           "data": {
             "values": [{"type": "Sphere"}]
@@ -56,8 +54,6 @@
             "fill": "#e6f3ff"
           }
         },
-        
-        // Malaysia states with paddy production data
         {
           "data": {
             "url": "malaysia_state.topojson",
@@ -114,12 +110,10 @@
           }
         }
       ],
-      
       "config": {
         "view": {"stroke": null}
       }
     };
-
     vegaEmbed('#vis', spec, {actions: false});
   </script>
 </body>
