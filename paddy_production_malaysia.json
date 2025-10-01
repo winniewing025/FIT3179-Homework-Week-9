@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Paddy Production in Malaysia by State (2022)",
+    "projection": {
+        "type": "equirectangular",
+        "center": [109, 4],
+        "scale": 2000
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "malaysia_state.topojson",
+                "format": {"type": "topojson", "feature": "states"}
+            },
+            "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1},
+            "encoding": {
+                "color": {
+                    "field": "properties.production",
+                    "type": "quantitative",
+                    "scale": {"scheme": "greens"},
+                    "title": "Paddy Production"
+                },
+                "tooltip": [
+                    {"field": "properties.name", "type": "nominal", "title": "State"},
+                    {"field": "properties.production", "type": "quantitative", "title": "Paddy Production"}
+                ]
+            }
+        }
+    ]
+}
